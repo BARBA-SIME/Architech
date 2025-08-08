@@ -1,5 +1,7 @@
 <!-- include A-Frame obviously -->
 <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+<!-- include Animation extras -->
+<script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.6.0/dist/aframe-extras.min.js"></script>
 <!-- include ar.js for A-Frame -->
 <!-- <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script> -->
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
@@ -14,13 +16,14 @@
         <a-asset-item id="Honey" response-type="arraybuffer" src=".\PotdeMiel_anim_1.glb"></a-asset-item>
     </a-assets>
     
-    <a-entity gltf-model="#Honey" position="0 0 0.5" rotation="-90 0 0" scale="4 4 4" animation-mixer="clip:TurningPot"></a-entity>
+    <a-entity gltf-model="#Honey" position="0 0 0.3" rotation="-90 0 0" scale="4 4 4" animation-mixer="clip:TurningPot"></a-entity>
     
     <!-- define a camera which will move according to the marker position -->
     <a-marker-camera preset='hiro'></a-marker-camera>
   </a-scene>
 
 </body>
+
 
 
 
