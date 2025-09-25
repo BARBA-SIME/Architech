@@ -1,28 +1,43 @@
-<!-- include A-Frame obviously -->
-<script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
-<!-- include Animation extras -->
-<script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.6.0/dist/aframe-extras.min.js"></script>
-<!-- include ar.js for A-Frame -->
-<!-- <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script> -->
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-
-
-<body style='margin : 0px; overflow: hidden;'>
-  <a-scene embedded arjs>
-    <!-- create your content here. just a box for now     <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>  -->
-  
-    <a-assets>
-        <a-asset-item id="Honey" response-type="arraybuffer" src=".\PotdeMiel_anim_1.glb"></a-asset-item>
-    </a-assets>
+<head>
+  ...
+  <title>Architectural visualisation with Aframe and MindAR</title>
+  <!-- include A-Frame obviously -->
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <!-- include Animation extras -->
+  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.6.0/dist/aframe-extras.min.js"></script>
+  <!-- include Mind-AR image tracking -->
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.0/dist/mindar-image-aframe.prod.js"></script>
+  ...
+</head>
+<body>
+    <a-scene
+    mindar-image="imageTargetSrc: ./targets_Card4.mind;"
+    vr-mode-ui="enabled: false"
+    id="scene"
+    >
+        
+        <a-assets>
+        <a-asset-item id="House" response-type="arraybuffer" src=".\AR_House.glb"></a-asset-item>
+        </a-assets>
     
-    <a-entity gltf-model="#Honey" position="0 0 0.3" rotation="-90 0 0" scale="4 4 4" animation-mixer="clip:TurningPot"></a-entity>
-    
-    <!-- define a camera which will move according to the marker position -->
-    <a-marker-camera preset='hiro'></a-marker-camera>
-  </a-scene>
+        <a-entity mindar-image-target="targetIndex: 0">
+            <a-gltf-model
+                animation-mixer
+                src="#House"
+                scale="1.1 1.1 1.1"
+                position="0.08 0.35 0"
+                rotation="90 0 0"
+                id="DasHaus"
+            ></a-gltf-model>
+        </a-entity>
+        <a-camera look-controls="enabled: false"></a-camera>
+        <!-- animation-mixer="clip:TurningPot" goes in <a-entity>   -->
+
+    </a-scene>
+
 
 </body>
+
 
 
 
