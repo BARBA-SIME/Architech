@@ -11,13 +11,14 @@
 </head>
 <body>
     <a-scene
-    mindar-image="imageTargetSrc: ./targets_Card4.mind;"
+    mindar-image="imageTargetSrc: ./targets_Cards_AIAHoneyMind.mind;"
     vr-mode-ui="enabled: false"
     id="scene"
     >
         
         <a-assets>
         <a-asset-item id="House" response-type="arraybuffer" src=".\AR_House.glb"></a-asset-item>
+        <a-asset-item id="Honey" response-type="arraybuffer" src=".\PotdeMiel_anim_1.glb"></a-asset-item>
         </a-assets>
     
         <a-entity mindar-image-target="targetIndex: 0">
@@ -30,13 +31,26 @@
                 id="DasHaus"
             ></a-gltf-model>
         </a-entity>
+        <a-entity mindar-image-target="targetIndex: 1">
+            <a-gltf-model
+                animation-mixer
+                src="#Honey"
+                scale="1.1 1.1 1.1"
+                position="0.08 0.35 0"
+                rotation="90 0 0"
+                id="DerHonig"
+            ></a-gltf-model>
+        </a-entity>
+
+
+
         <a-camera look-controls="enabled: false"></a-camera>
         <!-- animation-mixer="clip:TurningPot" goes in <a-entity>   -->
 
     </a-scene>
 
-
 </body>
+
 
 
 
